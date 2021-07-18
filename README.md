@@ -2,6 +2,10 @@
 
 [![CircleCI](https://circleci.com/gh/kukiron/react-wallet/tree/master.svg?style=svg)](https://circleci.com/gh/kukiron/react-wallet/tree/master)
 
+## Demo
+
+Deployed to heroku - [react-wallet](https://react-wallet-kukiron.herokuapp.com/)
+
 ## Getting started
 
 If you have node & npm installed you can clone the repo & get started.
