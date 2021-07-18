@@ -1,0 +1,12 @@
+{
+  "plugins": ["prettier"],
+  "extends": ["prettier", "react-app"],
+  "rules": {
+    "prettier/prettier": "warn",
+    "import/no-anonymous-default-export": "off",
+    "no-lone-blocks": "off",
+    "no-use-before-define": "off",
+    "no-console": "warn",
+    "react/no-unused-prop-types": [2]
+  }
+}
