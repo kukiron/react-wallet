@@ -1,5 +1,7 @@
 # react-wallet 💰
 
+[![CircleCI](https://circleci.com/gh/kukiron/react-wallet/tree/master.svg?style=svg)](https://circleci.com/gh/kukiron/react-wallet/tree/master)
+
 ## Getting started
 
 If you have node & npm installed you can clone the repo & get started.
