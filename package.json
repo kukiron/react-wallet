@@ -24,7 +24,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --runInBand --watchAll=false --coverage --colors",
+    "test": "react-scripts test --runInBand --watchAll=false --colors",
     "eject": "react-scripts eject",
     "lint": "eslint --max-warnings 0 src --fix"
   },
