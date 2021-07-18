@@ -20,7 +20,7 @@ const useStyles = makeStyles({
   growTo: { transformOrigin: "center top" },
 });
 
-const EXCHANGE_FULL_BALANCE = "Echange all";
+const EXCHANGE_FULL_BALANCE = "Exchange all";
 const options = [EXCHANGE_FULL_BALANCE, "Exchange"];
 
 function ModalButton({

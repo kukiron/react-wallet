@@ -84,7 +84,7 @@ function Summary({ total, currencies, onUpdateBalance }) {
 
         <CardContent className={classes.content}>
           <Typography variant="h6" className={classes.title}>
-            Your current account balanace is -
+            Your current account balance is -
             <span className={classes.balance}>{`${formatBalance(
               balance
             )}`}</span>
