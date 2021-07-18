@@ -8,15 +8,10 @@ import {
   TimerOffOutlined as ClockIcon,
 } from "@material-ui/icons";
 
-import { blueGray, bluePurple, purple, purpleBlue, red } from "../lib/colors";
-import { cardStyles } from "../lib/styles";
+import { blueGray, bluePurple, purple, red } from "../lib/colors";
+import { cardStyles, cellStyle, headerCellStyle } from "../lib/styles";
 import { formatBalance, formatDate, confirmDelete } from "../lib/utils";
 import { deleteRecord, deleteHistory } from "../redux/actions";
-
-const cellStyle = {
-  padding: "12px 20px",
-  borderBottom: `1px solid ${bluePurple}`,
-};
 
 const useStyles = makeStyles((theme) => ({
   card: {
@@ -40,16 +35,10 @@ const useStyles = makeStyles((theme) => ({
     borderSpacing: 0,
     overflow: "scroll",
   },
-  headerCell: {
-    position: "sticky",
-    top: 0,
-    background: `${purpleBlue}`,
-    color: "#fff",
-    boxShadow: "2px 3px 8px rgba(0, 0, 0, 0.2)",
-    textAlign: "left",
-    borderBottom: "1px solid #dce4f3",
-    padding: "13px 20px",
-    fontWeight: 500,
+  th: headerCellStyle,
+  thCenter: {
+    ...headerCellStyle,
+    textAlign: "center",
   },
   row: {
     "&:hover": {
@@ -57,12 +46,12 @@ const useStyles = makeStyles((theme) => ({
         "linear-gradient(270deg, #f7f7fb 0%, #f7f7fb 90%,   rgba(247, 247, 251, 0) 100%)",
     },
   },
-  cell: cellStyle,
-  alignedCell: {
+  td: cellStyle,
+  tdAligned: {
     ...cellStyle,
     textAlign: "right",
   },
-  centeredCell: {
+  tdCenter: {
     ...cellStyle,
     textAlign: "center",
   },
@@ -109,20 +98,6 @@ const useStyles = makeStyles((theme) => ({
 
 function History({ history, onDeleteRecord, onDeleteHistory }) {
   const classes = useStyles();
-  const renderCell = (children, align) => (
-    <td
-      className={
-        align === "right"
-          ? classes.alignedCell
-          : (align === "center" && classes.centeredCell) || classes.cell
-      }
-    >
-      {children}
-    </td>
-  );
-  const renderHeaderCell = (children) => (
-    <th className={classes.headerCell}>{children}</th>
-  );
 
   const renderDeleteIcon = (id) => (
     <DeleteIcon
@@ -145,11 +120,11 @@ function History({ history, onDeleteRecord, onDeleteHistory }) {
           <table className={classes.table}>
             <thead>
               <tr>
-                {renderHeaderCell("Date")}
-                {renderHeaderCell("Description")}
-                {renderHeaderCell("Amount")}
-                {renderHeaderCell("Currency")}
-                {renderHeaderCell()}
+                <th className={classes.th}>Date</th>
+                <th className={classes.th}>Description</th>
+                <th className={classes.thCenter}>Amount</th>
+                <th className={classes.thCenter}>Currency</th>
+                <th className={classes.th}>&nbsp;</th>
               </tr>
             </thead>
 
@@ -157,11 +132,13 @@ function History({ history, onDeleteRecord, onDeleteHistory }) {
               {history.map(
                 ({ id, type, date, description, amount, currency }) => (
                   <tr key={id} className={classes.row}>
-                    {renderCell(formatDate(date).short)}
-                    {renderCell(description)}
-                    {renderCell(amount ? formatBalance(amount) : 0, "right")}
-                    {renderCell(currency || "-", "center")}
-                    {renderCell(renderDeleteIcon(id))}
+                    <td className={classes.td}>{formatDate(date).short}</td>
+                    <td className={classes.td}>{description}</td>
+                    <td className={classes.tdAligned}>
+                      {amount ? formatBalance(amount) : "0.00"}
+                    </td>
+                    <td className={classes.tdCenter}>{currency || "-"}</td>
+                    <td className={classes.td}>{renderDeleteIcon(id)}</td>
                   </tr>
                 )
               )}

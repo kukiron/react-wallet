@@ -1,4 +1,10 @@
-import { blueGray, brightBlue, purple } from "../lib/colors";
+import {
+  blueGray,
+  bluePurple,
+  brightBlue,
+  purple,
+  purpleBlue,
+} from "../lib/colors";
 
 // app common styles
 
@@ -54,4 +60,20 @@ export const linkStyle = {
   "&:hover": {
     color: `${purple}`,
   },
+};
+
+export const cellStyle = {
+  padding: "12px 20px",
+  borderBottom: `1px solid ${bluePurple}`,
+};
+export const headerCellStyle = {
+  position: "sticky",
+  top: 0,
+  background: `${purpleBlue}`,
+  color: "#fff",
+  boxShadow: "2px 3px 8px rgba(0, 0, 0, 0.2)",
+  textAlign: "left",
+  borderBottom: "1px solid #dce4f3",
+  padding: "13px 20px",
+  fontWeight: 500,
 };
