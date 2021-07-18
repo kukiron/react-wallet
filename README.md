@@ -40,7 +40,7 @@ store: {
     {
       id: String,
       date: String,
-      description?: String,
+      description: String,
       amount: Number,
       currency: String,
     },
@@ -50,7 +50,7 @@ store: {
 
 ### Actions
 
-Following actions are responsible for app functionalities when dispatched -
+Following actions are responsible for the functionalities in the app (in `src/redux/actions/index.js`) -
 
 - `updateTotalBalance`
 - `addCurrency`
