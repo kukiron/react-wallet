@@ -40,6 +40,7 @@ const useStyles = makeStyles({
   },
   title: {
     fontWeight: 400,
+    textAlign: "right",
   },
   balance: {
     fontWeight: "bold",
