@@ -6,6 +6,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import {
   Delete as DeleteIcon,
   TimerOffOutlined as ClockIcon,
+  DeleteSweepOutlined as DeleteAllIcon,
 } from "@material-ui/icons";
 
 import { blueGray, bluePurple, purple, red } from "../lib/colors";
@@ -80,10 +81,17 @@ const useStyles = makeStyles((theme) => ({
   footer: {
     display: "flex",
     justifyContent: "flex-start",
+    alignItems: "center",
+  },
+  deleteAllIcon: {
+    color: `${red}`,
+    marginRight: 5,
+    fontSize: 18,
+    marginTop: -2,
   },
   button: {
     height: 30,
-    fontSize: 12,
+    fontSize: 13,
     margin: "10px 20px",
     width: "fit-content",
     textTransform: "none",
@@ -147,6 +155,7 @@ function History({ history, onDeleteRecord, onDeleteHistory }) {
               color="secondary"
               onClick={() => confirmDelete({ callback: onDeleteHistory })}
             >
+              <DeleteAllIcon className={classes.deleteAllIcon} />
               Clear all
             </Button>
           </div>
