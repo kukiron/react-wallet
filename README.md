@@ -20,9 +20,9 @@ The app will be available on `localhost:3000`
 
 ## Technologies used
 
-- Material UI React: To give the app cool material design look
+- Material UI React: To give the app a cool material design look
 - Redux: Best state management solution for react app
-- Redux Persist: Persists state data in the browser & gives more realistic user experience without a back-end
+- Redux Persist: Persists state data in the browser & gives a more realistic user experience without a back-end
 - Prettier: For code styling. Integrates well with VSCode
 - JEST, ESLint: Testing & linting
 
@@ -40,9 +40,9 @@ store: {
     {
       id: String,
       date: String,
-      description: String,
       amount: Number,
       currency: String,
+      description: String,
     },
   ],
 }
