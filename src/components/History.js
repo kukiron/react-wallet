@@ -28,6 +28,9 @@ const useStyles = makeStyles((theme) => ({
   table: {
     height: "100%",
     width: "100%",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-between",
   },
   tbody: {
     display: "table",
@@ -79,9 +82,7 @@ const useStyles = makeStyles((theme) => ({
     color: `${purple}`,
   },
   footer: {
-    display: "flex",
-    justifyContent: "flex-start",
-    alignItems: "center",
+    padding: "12px 20px",
   },
   deleteAllIcon: {
     color: `${red}`,
@@ -92,9 +93,10 @@ const useStyles = makeStyles((theme) => ({
   button: {
     height: 30,
     fontSize: 13,
-    margin: "10px 20px",
+    padding: "15px 20px",
     width: "fit-content",
     textTransform: "none",
+    alignSelf: "flex-start",
     flexShrink: 0,
   },
 }));
