@@ -18,6 +18,7 @@ const useStyles = makeStyles((theme) => ({
     ...cardStyles,
     fontSize: 14,
     maxHeight: 450,
+    overflow: "auto",
   },
   table: {
     height: "100%",
@@ -25,7 +26,6 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "column",
     justifyContent: "space-between",
-    overflowY: "auto",
   },
   tbody: {
     display: "table",
@@ -81,10 +81,8 @@ const useStyles = makeStyles((theme) => ({
     alignSelf: "flex-end",
     justifyContent: "flex-end",
   },
-  buttonWrapper: {
-    alignSelf: "flex-end",
-  },
   button: {
+    float: "right",
     height: 30,
     fontSize: 12,
     margin: "10px 20px",
@@ -140,19 +138,20 @@ function History({ history, onDeleteRecord, onDeleteHistory }) {
                   </tr>
                 )
               )}
+              <tr>
+                <td colspan="5">
+                  <Button
+                    className={classes.button}
+                    variant="outlined"
+                    color="secondary"
+                    onClick={() => confirmDelete({ callback: onDeleteHistory })}
+                  >
+                    Clear history
+                  </Button>
+                </td>
+              </tr>
             </tbody>
           </table>
-
-          <div className={classes.buttonWrapper}>
-            <Button
-              className={classes.button}
-              variant="outlined"
-              color="secondary"
-              onClick={() => confirmDelete({ callback: onDeleteHistory })}
-            >
-              Clear history
-            </Button>
-          </div>
         </div>
       )}
     </Card>
