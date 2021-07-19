@@ -13,21 +13,19 @@ import { SectionHeader } from "./components/common";
 import ErrorBoundary from "./ErrorBoundary";
 
 const useStyles = makeStyles((theme) => ({
-  grid: {
-    display: "grid",
-    gridTemplateColumns: "4fr 1fr",
-    gridGap: 30,
-    width: "100%",
-    minHeight: 300,
-  },
   root: {
     margin: "60px auto",
   },
   space: {
     marginBottom: 60,
   },
-  [theme.breakpoints.down("sm")]: {
-    grid: {
+  sidebar: {
+    display: "grid",
+    gridTemplateColumns: "4fr 1fr",
+    gridGap: 30,
+    width: "100%",
+    minHeight: 300,
+    [theme.breakpoints.down("sm")]: {
       display: "flex",
       flexDirection: "column",
     },
@@ -50,7 +48,7 @@ export default function App() {
 
         <>
           <SectionHeader text="Transaction history" />
-          <div className={classes.grid}>
+          <div className={classes.sidebar}>
             <History />
             <Sidebar />
           </div>
