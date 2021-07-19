@@ -17,30 +17,28 @@ const useStyles = makeStyles((theme) => ({
   card: {
     ...cardStyles,
     fontSize: 14,
-    overflowY: "auto",
     maxHeight: 450,
-    [theme.breakpoints.down("sm")]: {
-      height: 250,
-    },
   },
-  tableWrapper: {
+  table: {
     height: "100%",
     width: "100%",
     display: "flex",
     flexDirection: "column",
     justifyContent: "space-between",
+    overflowY: "auto",
   },
-  table: {
+  tbody: {
+    display: "table",
     width: "100%",
     borderSpacing: 0,
-    overflow: "scroll",
+    whiteSpace: "nowrap",
   },
   th: headerCellStyle,
   thCenter: {
     ...headerCellStyle,
     textAlign: "center",
   },
-  row: {
+  tr: {
     "&:hover": {
       backgroundImage:
         "linear-gradient(270deg, #f7f7fb 0%, #f7f7fb 90%,   rgba(247, 247, 251, 0) 100%)",
@@ -116,8 +114,8 @@ function History({ history, onDeleteRecord, onDeleteHistory }) {
           <div className={classes.emptyText}>No transaction record to show</div>
         </div>
       ) : (
-        <div className={classes.tableWrapper}>
-          <table className={classes.table}>
+        <div className={classes.table}>
+          <table className={classes.tbody}>
             <thead>
               <tr>
                 <th className={classes.th}>Date</th>
@@ -131,7 +129,7 @@ function History({ history, onDeleteRecord, onDeleteHistory }) {
             <tbody>
               {history.map(
                 ({ id, type, date, description, amount, currency }) => (
-                  <tr key={id} className={classes.row}>
+                  <tr key={id} className={classes.tr}>
                     <td className={classes.td}>{formatDate(date).short}</td>
                     <td className={classes.td}>{description}</td>
                     <td className={classes.tdAligned}>

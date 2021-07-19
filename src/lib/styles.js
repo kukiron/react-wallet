@@ -65,7 +65,11 @@ export const linkStyle = {
 export const cellStyle = {
   padding: "12px 20px",
   borderBottom: `1px solid ${bluePurple}`,
+  "@media (max-width: 768px)": {
+    padding: "8px 15px",
+  },
 };
+
 export const headerCellStyle = {
   position: "sticky",
   top: 0,
@@ -76,4 +80,7 @@ export const headerCellStyle = {
   borderBottom: "1px solid #dce4f3",
   padding: "13px 20px",
   fontWeight: 500,
+  "@media (max-width: 768px)": {
+    padding: "13px 15px",
+  },
 };
