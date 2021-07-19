@@ -19,13 +19,14 @@ const useStyles = makeStyles((theme) => ({
     fontSize: 14,
     maxHeight: 450,
     overflow: "auto",
+    // responsive styles
+    [theme.breakpoints.down("sm")]: {
+      minHeight: 250,
+    },
   },
   table: {
     height: "100%",
     width: "100%",
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "space-between",
   },
   tbody: {
     display: "table",
@@ -78,11 +79,9 @@ const useStyles = makeStyles((theme) => ({
   },
   footer: {
     display: "flex",
-    alignSelf: "flex-end",
-    justifyContent: "flex-end",
+    justifyContent: "flex-start",
   },
   button: {
-    float: "right",
     height: 30,
     fontSize: 12,
     margin: "10px 20px",
@@ -138,20 +137,19 @@ function History({ history, onDeleteRecord, onDeleteHistory }) {
                   </tr>
                 )
               )}
-              <tr>
-                <td colspan="5">
-                  <Button
-                    className={classes.button}
-                    variant="outlined"
-                    color="secondary"
-                    onClick={() => confirmDelete({ callback: onDeleteHistory })}
-                  >
-                    Clear history
-                  </Button>
-                </td>
-              </tr>
             </tbody>
           </table>
+
+          <div className={classes.footer}>
+            <Button
+              className={classes.button}
+              variant="outlined"
+              color="secondary"
+              onClick={() => confirmDelete({ callback: onDeleteHistory })}
+            >
+              Clear all
+            </Button>
+          </div>
         </div>
       )}
     </Card>
