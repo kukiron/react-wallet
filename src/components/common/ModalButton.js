@@ -86,9 +86,12 @@ function ModalButton({
           className={classes.button}
         >
           <Button
-            className={classes.dropButton}
-            onClick={onSave}
             disabled={!state.balance}
+            className={classes.dropButton}
+            onClick={() => {
+              onSave();
+              setFullExchange(false);
+            }}
           >
             {options[buttonState.selectedIndex]}
           </Button>
