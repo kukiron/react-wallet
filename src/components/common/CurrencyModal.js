@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import {
+  CircularProgress,
   Dialog,
   DialogActions,
   DialogTitle,
@@ -12,6 +13,7 @@ import { makeStyles } from "@material-ui/core/styles";
 
 import SelectCurrency from "./SelectCurrency";
 import ModalButton from "./ModalButton";
+import { blueGray } from "../../lib/colors";
 
 const useStyles = makeStyles({
   form: {
@@ -20,11 +22,17 @@ const useStyles = makeStyles({
     justifyContent: "flex-end",
     padding: "5px 10px",
   },
+  loader: {
+    color: `${blueGray}`,
+    padding: 10,
+    marginTop: 8,
+  },
   textField: { marginTop: 0 },
   formButton: { margin: 10 },
 });
 
 function CurrencyModal({
+  loading,
   open,
   setOpen,
   state,
@@ -63,15 +71,19 @@ function CurrencyModal({
               className={classes.textField}
               disabled={fullExchange}
             />
-            <SelectCurrency
-              label={noCurrency ? "No currency" : label || "Currency"}
-              activeCurrency={state.currency}
-              currencies={currencies}
-              onSelect={({ target: { value } }) =>
-                setState({ ...state, currency: value })
-              }
-              disabled={noCurrency}
-            />
+            {loading ? (
+              <CircularProgress className={classes.loader} size={20} />
+            ) : (
+              <SelectCurrency
+                label={noCurrency ? "No currency" : label || "Currency"}
+                activeCurrency={state.currency}
+                currencies={currencies}
+                onSelect={({ target: { value } }) =>
+                  setState({ ...state, currency: value })
+                }
+                disabled={noCurrency}
+              />
+            )}
           </div>
         </DialogContent>
 
@@ -108,9 +120,11 @@ CurrencyModal.propTypes = {
     balance: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     currency: PropTypes.string,
   }),
+  loading: PropTypes.bool,
 };
 
 CurrencyModal.defaultProps = {
+  loading: false,
   exchangeCurrency: undefined,
 };
 

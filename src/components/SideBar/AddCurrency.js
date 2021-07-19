@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { Card } from "@material-ui/core";
+import Card from "@material-ui/core/Card";
 import { makeStyles } from "@material-ui/core/styles";
 import { MonetizationOnOutlined as CurrencyIcon } from "@material-ui/icons";
 
@@ -26,17 +26,20 @@ const initialState = { balance: "", currency: "" };
 function AddCurrency({ activeCurrencies, onAddCurrency }) {
   const classes = useStyles();
   const [currencies, setCurrencies] = useState([]);
+  const [loading, setLoading] = useState(false);
   const [open, setOpen] = useState(false);
   const [category, setCategory] = useState(initialState);
 
   useEffect(() => {
     // fetch conversion rates when modal is opened
     if (open) {
+      setLoading(true);
       getConversionRates().then((result) => {
         const currencyList = Object.keys(result).filter(
           (currency) => !activeCurrencies.includes(currency)
         );
         setCurrencies(currencyList);
+        setLoading(false);
       });
     }
   }, [open]) // eslint-disable-line
@@ -51,6 +54,7 @@ function AddCurrency({ activeCurrencies, onAddCurrency }) {
     <Card className={classes.card}>
       <CurrencyIcon className={classes.icon} color="primary" fontSize="large" />
       <CardAction
+        loading={loading}
         open={open}
         setOpen={setOpen}
         state={category}
