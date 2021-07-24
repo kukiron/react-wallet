@@ -48,7 +48,3 @@ describe("updateTotalBalance", () => {
     expect(store.getActions()).toEqual(actions);
   });
 });
-
-afterAll(() => {
-  jest.unmock("../balance");
-});

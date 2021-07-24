@@ -231,6 +231,7 @@ describe("thunks", () => {
 });
 
 afterAll(() => {
+  jest.unmock("uuid");
   jest.unmock("../../../lib/currency");
   jest.unmock("../../../lib/utils");
 });
