@@ -23,12 +23,12 @@ export const formatBalance = (balance) => {
 
 export const formatDate = (date) => {
   const commonOptions = { year: "numeric", month: "long", day: "numeric" };
-  const currentDate = (date || new Date().toISOString()).substring(0, 10);
-  const long = new Date(currentDate).toLocaleDateString("en", {
+  const currentDate = date ? new Date(date.substring(0, 10)) : new Date();
+  const long = currentDate.toLocaleDateString("en", {
     ...commonOptions,
     weekday: "long",
   });
-  const short = new Date(currentDate).toLocaleDateString("en", commonOptions);
+  const short = currentDate.toLocaleDateString("en", commonOptions);
 
   return { long, short };
 };
