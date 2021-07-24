@@ -12,6 +12,7 @@ const useStyles = makeStyles({
 
 function SectionHeader({ text }) {
   const classes = useStyles();
+
   return <div className={classes.header}>{text}</div>;
 }
 

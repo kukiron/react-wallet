@@ -181,11 +181,11 @@ History.propTypes = {
   onDeleteHistory: PropTypes.func.isRequired,
 };
 
-const mapStateProps = ({ history }) => ({ history });
+const mapStateToProps = ({ history }) => ({ history });
 
 const mapDispatchToProps = (dispatch) => ({
   onDeleteRecord: (id) => dispatch(deleteRecord({ id })),
   onDeleteHistory: () => dispatch(deleteHistory()),
 });
 
-export default connect(mapStateProps, mapDispatchToProps)(History);
+export default connect(mapStateToProps, mapDispatchToProps)(History);
