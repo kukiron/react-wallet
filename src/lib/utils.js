@@ -8,7 +8,7 @@ export const getHistoryRecord = (payload) => {
     currency,
     description: exchangeToCurrency
       ? `Exchanged from ${currency} to ${exchangeToCurrency}`
-      : "Amount deposited",
+      : "Balance deposited",
     date: new Date().toISOString(),
   };
 };

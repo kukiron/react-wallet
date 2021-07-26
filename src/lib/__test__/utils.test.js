@@ -39,7 +39,7 @@ describe("getHistoryRecord", () => {
     const input = { balance: 100, currency: "USD" };
     const record = getHistoryRecord(input);
 
-    expect(record.description).toEqual("Amount deposited");
+    expect(record.description).toEqual("Balance deposited");
   });
 });
 

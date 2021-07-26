@@ -109,7 +109,7 @@ describe("thunks", () => {
         id: "testId",
         amount: payload.balance,
         currency: payload.currency,
-        description: "Amount deposited",
+        description: "Balance deposited",
         date,
       };
       utils.getHistoryRecord = jest.fn().mockReturnValueOnce(record);
