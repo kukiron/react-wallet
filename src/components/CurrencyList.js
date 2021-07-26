@@ -175,7 +175,7 @@ function CurrencyList({ currencies, onExchangeCurrency, onDeleteCurrency }) {
               {balance > 0 && canExchange ? (
                 <StyledTooltip
                   placement="top"
-                  title="Cannot be removed. Exchange & empty tha balance first"
+                  title="Cannot be removed. Exchange & empty the balance first"
                 >
                   {renderRemoveButton(item)}
                 </StyledTooltip>
