@@ -125,4 +125,6 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(updateTotalBalance({ balance, currency, change: true })),
 });
 
+export { Summary as UnconnectedSummary };
+
 export default connect(mapStateToProps, mapDispatchToProps)(Summary);
