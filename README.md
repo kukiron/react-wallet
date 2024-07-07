@@ -1,10 +1,11 @@
 # react-wallet 💰
 
 [![CircleCI](https://circleci.com/gh/kukiron/react-wallet/tree/master.svg?style=svg)](https://circleci.com/gh/kukiron/react-wallet/tree/master)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/f93a04a9-fe06-4773-ae95-0f366d90bb9e/deploy-status)](https://app.netlify.com/sites/react-wallet-kukiron/deploys)
 
 ## Demo
 
-Deployed to heroku - [react-wallet](https://react-wallet-kukiron.herokuapp.com/)
+Deployed to Netlify - [react-wallet](https://react-wallet-kukiron.netlify.app/)
 
 ## Getting started
 
